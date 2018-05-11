@@ -212,7 +212,7 @@ RSpec.describe Twterm::Completer::SearchQueryCompleter do
         json[:full_name] = '@pacific/buffaloes'
         app.list_repository.create(Twitter::List.new(json))
 
-        p app.list_repository.all
+        # p app.list_repository.all
       end
 
       context 'when the query is "list:"' do

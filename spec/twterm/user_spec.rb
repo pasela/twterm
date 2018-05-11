@@ -5,10 +5,10 @@ RSpec.describe Twterm::User do
   let(:json) { JSON.parse(fixture('user.json'), symbolize_names: true) }
 
   describe '#update!' do
-    subject { -> { user.update!(Hashie::Mash.new(params)) } }
+    subject { -> { user.update!(FakeObject.new(params)) } }
 
     before do
-      user.update!(Hashie::Mash.new(
+      user.update!(FakeObject.new(
         name: 'Alice',
         screen_name: 'alice',
         description: 'Hi! I am Alice.',

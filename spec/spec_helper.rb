@@ -12,3 +12,8 @@ end
 Dir['spec/supports/**/*.rb'].each { |f| require File.expand_path(f, __dir__ + '/..') }
 
 require 'twterm'
+require 'hashie/mash'
+
+class FakeObject < Hashie::Mash
+  disable_warnings
+end

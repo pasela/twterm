@@ -1,5 +1,3 @@
-require 'hashie/mash'
-
 describe Twterm::Status do
   let(:status) { described_class.new(Twitter::Tweet.new(json)) }
   let(:json) { JSON.parse(fixture('status.json'), symbolize_names: true) }
@@ -27,9 +25,9 @@ describe Twterm::Status do
   end
 
   describe '#update!' do
-    subject { -> { status.update!(Hashie::Mash.new(params)) } }
+    subject { -> { status.update!(FakeObject.new(params)) } }
 
-    before { status.update!(Hashie::Mash.new(retweet_count: 0, favorite_count: 0, retweeted: false, favorited: false)) }
+    before { status.update!(FakeObject.new(retweet_count: 0, favorite_count: 0, retweeted: false, favorited: false)) }
 
     context 'when updating retweet_count' do
       let(:params) { { retweet_count: 42 } }
